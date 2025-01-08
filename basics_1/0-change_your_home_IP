@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Script to change the IP resolution of localhost and facebook.com
 
 # Check if the script is run as root
