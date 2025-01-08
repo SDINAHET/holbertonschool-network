@@ -1,5 +1,5 @@
-#!/bin/bash
-# Displays listening ports with PID and program name
+#!/usr/bin/env bash
+# Exemple de script pour afficher les ports TCP et UDP
 
 netstat -pulnt| grep LISTEN
 netstat -puln
