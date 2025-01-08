@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # Script to display all active IPv4 IPs on the machine
+# Cette commande est utilisée pour extraire et afficher toutes les adresses IPv4 actives associées aux interfaces réseau de la machine. Elle repose sur deux outils : ifconfig, pour afficher les informations des interfaces réseau, et awk, pour filtrer et afficher uniquement les adresses IP.
 
 # Use `ip` command to list IPv4 addresses associated with active interfaces
-ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+# ip -4 addr show | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+ip -4 addr show | awk '/inet / {print $2}'
+# ifconfig | awk '/inet / {print $2}'
