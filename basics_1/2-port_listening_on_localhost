@@ -1,0 +1,12 @@
+#!/bin/bash
+# Script to listen on port 98 on localhost
+
+# Check if nc is installed
+if ! command -v nc &> /dev/null; then
+    echo "Error: netcat (nc) is not installed. Please install it."
+    exit 1
+fi
+
+# Listen on port 98 on localhost
+echo "Listening on localhost port 98. Press Ctrl+C to stop."
+nc -l 98
