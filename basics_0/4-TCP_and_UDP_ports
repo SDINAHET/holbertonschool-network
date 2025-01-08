@@ -1,5 +1,5 @@
 #!/bin/bash
 # Displays listening ports with PID and program name
 
-netstat -tulnp | grep LISTEN
-netstat -tulnp
+netstat -pulnt| grep LISTEN
+netstat -puln
