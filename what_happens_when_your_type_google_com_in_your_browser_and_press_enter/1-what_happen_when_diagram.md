@@ -15,45 +15,40 @@ The diagram should show:
 
 ```mermaid
 graph TD
-    A[User Browser] -->|1. DNS Resolution| B[DNS Server]
-    B -->|Resolves Domain to IP Address| C[Server IP: 8.8.8.8]
-    C -->|2. TCP/IP Connection on Port 443| D[Firewall]
-    D -->|3. Inspects Traffic| E[HTTPS/SSL Encryption]
-    E -->|4. Secures Traffic| F[Load Balancer]
-    F -->|5. Distributes Request| G[Web Server]
+    A[User Browser] -->|DNS Resolution| B[DNS Server]
+    B -->|Resolves Domain to IP| C[Server IP: 8.8.8.8]
+    C -->|TCP/IP Connection on Port 443| D[Firewall]
+    D -->|Inspects Traffic| E[HTTPS/SSL Encryption]
+    E -->|Secures Traffic| F[Load Balancer]
+    F -->|Distributes Request| G[Web Server]
 
-    G -->|6. Serves Static Content| A
-    G -->|7. Forwards Dynamic Request| H[Application Server]
-    H -->|8. Executes Business Logic| I[Database]
-    I -->|9. Retrieves Data| H
-    H -->|10. Generates Web Page| G
-
-    %% Detailed Notes for Each Step
-    %% User Browser Initiates DNS Resolution
-    A -->|Request for www.google.com| B
-    B -->|Response with IP Address 8.8.8.8| C
-
-    %% TCP/IP Handshake and Port Usage
-    C -->|Connects via Port 443| D
-    D -->|Traffic Inspection| E
-
-    %% Encryption and Secure Transmission
-    E -->|Encrypts Traffic| F
-
-    %% Load Balancer Distributes Requests
-    F -->|Routes to Optimal Server| G
-
-    %% Web Server Handles Content
-    G -->|Delivers Static Resources| A
-    G -->|Handles Dynamic Request| H
-
-    %% Application Server Logic Execution
-    H -->|Queries Data| I
+    G -->|Serves Static Content| A
+    G -->|Forwards Dynamic Request| H[Application Server]
+    H -->|Executes Logic| I[Database]
     I -->|Returns Data| H
     H -->|Generates HTML| G
-
-    %% Web Server Responds to Browser
     G -->|Delivers Final Response| A
+
+    %% Detailed Notes
+    %% DNS resolution step
+    A -->|Request for www.google.com| B
+    B -->|Responds with IP Address| C
+
+    %% Connection Establishment
+    C -->|Connects on Port 443| D
+    D -->|Checks for Malicious Traffic| E
+
+    %% Encryption and Load Balancing
+    E -->|Encrypts Request| F
+    F -->|Routes to Server| G
+
+    %% Request Processing
+    G -->|Handles Static Files| A
+    G -->|Processes Dynamic Requests| H
+    H -->|Queries Database| I
+    I -->|Sends Back Query Results| H
+    H -->|Generates Dynamic Content| G
+    G -->|Sends Final Content| A
 
     %% Classes for Styling
     classDef client fill:#a8e6cf,stroke:#333,stroke-width:2px;
@@ -70,51 +65,47 @@ graph TD
     class A client;
     class B dns;
     class C,D,E,F,G,H,I server;
+
 
 ```
 
 
 ```plaintext
 graph TD
-    A[User Browser] -->|1. DNS Resolution| B[DNS Server]
-    B -->|Resolves Domain to IP Address| C[Server IP: 8.8.8.8]
-    C -->|2. TCP/IP Connection on Port 443| D[Firewall]
-    D -->|3. Inspects Traffic| E[HTTPS/SSL Encryption]
-    E -->|4. Secures Traffic| F[Load Balancer]
-    F -->|5. Distributes Request| G[Web Server]
+    A[User Browser] -->|DNS Resolution| B[DNS Server]
+    B -->|Resolves Domain to IP| C[Server IP: 8.8.8.8]
+    C -->|TCP/IP Connection on Port 443| D[Firewall]
+    D -->|Inspects Traffic| E[HTTPS/SSL Encryption]
+    E -->|Secures Traffic| F[Load Balancer]
+    F -->|Distributes Request| G[Web Server]
 
-    G -->|6. Serves Static Content| A
-    G -->|7. Forwards Dynamic Request| H[Application Server]
-    H -->|8. Executes Business Logic| I[Database]
-    I -->|9. Retrieves Data| H
-    H -->|10. Generates Web Page| G
-
-    %% Detailed Notes for Each Step
-    %% User Browser Initiates DNS Resolution
-    A -->|Request for www.google.com| B
-    B -->|Response with IP Address 8.8.8.8| C
-
-    %% TCP/IP Handshake and Port Usage
-    C -->|Connects via Port 443| D
-    D -->|Traffic Inspection| E
-
-    %% Encryption and Secure Transmission
-    E -->|Encrypts Traffic| F
-
-    %% Load Balancer Distributes Requests
-    F -->|Routes to Optimal Server| G
-
-    %% Web Server Handles Content
-    G -->|Delivers Static Resources| A
-    G -->|Handles Dynamic Request| H
-
-    %% Application Server Logic Execution
-    H -->|Queries Data| I
+    G -->|Serves Static Content| A
+    G -->|Forwards Dynamic Request| H[Application Server]
+    H -->|Executes Logic| I[Database]
     I -->|Returns Data| H
     H -->|Generates HTML| G
-
-    %% Web Server Responds to Browser
     G -->|Delivers Final Response| A
+
+    %% Detailed Notes
+    %% DNS resolution step
+    A -->|Request for www.google.com| B
+    B -->|Responds with IP Address| C
+
+    %% Connection Establishment
+    C -->|Connects on Port 443| D
+    D -->|Checks for Malicious Traffic| E
+
+    %% Encryption and Load Balancing
+    E -->|Encrypts Request| F
+    F -->|Routes to Server| G
+
+    %% Request Processing
+    G -->|Handles Static Files| A
+    G -->|Processes Dynamic Requests| H
+    H -->|Queries Database| I
+    I -->|Sends Back Query Results| H
+    H -->|Generates Dynamic Content| G
+    G -->|Sends Final Content| A
 
     %% Classes for Styling
     classDef client fill:#a8e6cf,stroke:#333,stroke-width:2px;
@@ -131,5 +122,4 @@ graph TD
     class A client;
     class B dns;
     class C,D,E,F,G,H,I server;
-
 ```
