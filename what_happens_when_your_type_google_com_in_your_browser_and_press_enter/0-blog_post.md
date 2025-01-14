@@ -5,6 +5,7 @@ https://medium.com/@9546_58289/what-happens-when-you-type-https-www-google-com-i
 ![diagram task0_png](0-blog_post.png)
 
 ```mermaid
+
 classDiagram
     class UserBrowser {
         +sendRequest(domain: String)
