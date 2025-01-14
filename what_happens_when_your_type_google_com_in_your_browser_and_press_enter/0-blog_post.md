@@ -2,6 +2,7 @@ https://medium.com/@9546_58289/what-happens-when-you-type-https-www-google-com-i
 
 
 [diagram task0](diagram_task0.mmd)
+![diagram task0_png](0-blog_post.png)
 
 ```mermaid
 classDiagram
