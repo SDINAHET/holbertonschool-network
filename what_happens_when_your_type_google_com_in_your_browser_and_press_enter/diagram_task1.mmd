@@ -1,6 +1,6 @@
 graph TD
     A[User Browser] -->|1. DNS Resolution| B[DNS Server]
-    B -->|Resolves Domain to IP| C[Server IP (8.8.8.8)]
+    B -->|Resolves Domain to IP Address| C[Server IP: 8.8.8.8]
     C -->|2. TCP/IP Connection on Port 443| D[Firewall]
     D -->|3. Inspects Traffic| E[HTTPS/SSL Encryption]
     E -->|4. Secures Traffic| F[Load Balancer]
@@ -14,30 +14,30 @@ graph TD
 
     %% Detailed Notes for Each Step
     %% User Browser Initiates DNS Resolution
-    A:::client -->|Request: www.google.com| B:::dns
-    B:::dns -->|Response: IP Address (e.g., 8.8.8.8)| C:::server
+    A -->|Request for www.google.com| B
+    B -->|Response with IP Address 8.8.8.8| C
 
     %% TCP/IP Handshake and Port Usage
-    C:::server -->|Establishes Connection via Port 443| D:::firewall
-    D:::firewall -->|Traffic Inspection| E:::https
+    C -->|Connects via Port 443| D
+    D -->|Traffic Inspection| E
 
     %% Encryption and Secure Transmission
-    E:::https -->|Encrypted Traffic| F:::loadbalancer
+    E -->|Encrypts Traffic| F
 
     %% Load Balancer Distributes Requests
-    F:::loadbalancer -->|Routes Traffic to Optimal Server| G:::webserver
+    F -->|Routes to Optimal Server| G
 
     %% Web Server Handles Content
-    G:::webserver -->|Static Resources (HTML, CSS, JS)| A:::client
-    G:::webserver -->|Dynamic Request Handling| H:::appserver
+    G -->|Delivers Static Resources| A
+    G -->|Handles Dynamic Request| H
 
     %% Application Server Logic Execution
-    H:::appserver -->|Queries Database| I:::database
-    I:::database -->|Data Response| H:::appserver
-    H:::appserver -->|Processes and Generates HTML| G:::webserver
+    H -->|Queries Data| I
+    I -->|Returns Data| H
+    H -->|Generates HTML| G
 
     %% Web Server Responds to Browser
-    G:::webserver -->|Delivers Complete Response| A:::client
+    G -->|Delivers Final Response| A
 
     %% Classes for Styling
     classDef client fill:#a8e6cf,stroke:#333,stroke-width:2px;
