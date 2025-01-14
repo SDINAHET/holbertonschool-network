@@ -1,3 +1,5 @@
+https://medium.com/@9546_58289/what-happens-when-you-type-https-www-google-com-in-your-browser-and-press-enter-6e8bd138b924
+
 Add a schema to your blog post illustrating the flow of the request created when you type https://www.google.com in your browser and press Enter.
 
 The diagram should show:
